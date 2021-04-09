@@ -3,9 +3,17 @@ import numpy as np
 from scipy.stats import shapiro
 from scipy.stats import normaltest
 import io
+import matplotlib.pyplot as plt
+import seaborn as sb
 
 dataframe = pd.read_csv(filepath_or_buffer="dataset/datatest.txt")
 dataframe["date"] = pd.to_numeric(pd.to_datetime(dataframe["date"]))
+matrix_corr = dataframe.corr()
+colormap = plt.cm.coolwarm
+plt.figure(figsize=(12,12))
+plt.title('Occupancy detection correlation', y=1.05, size=15)
+sb.heatmap(matrix_corr, annot=True, vmin= 0.0, vmax=1.0)#.astype(float).corr(),linewidths=0.1,vmax=1.0, square=True, cmap=colormap, linecolor='white', annot=True)
+plt.show()
 columns=dataframe.columns.values
 normal=[]
 noNormal=[]
