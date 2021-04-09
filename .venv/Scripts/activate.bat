@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\Sebastian\Desktop\python-projects\Parcial\.venv
+set VIRTUAL_ENV=C:\Users\react\Desktop\Python_projects\occupancy-detection-classifier\.venv
 
 if not defined PROMPT set PROMPT=$P$G
 
