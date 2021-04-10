@@ -3,6 +3,9 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+import time
+start_time = time.time()
+
 #
 # CARGAR DATASET
 #
@@ -55,3 +58,4 @@ acc = accuracy_score(label_test, prediction)
 print("Precisión NaiveBayes", acc)
 print(classification_report(label_test, prediction, labels=np.unique(prediction)))
 print(confusion_matrix(label_test, prediction))
+print("--- %s seconds ---" % (time.time() - start_time))

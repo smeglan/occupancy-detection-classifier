@@ -3,6 +3,9 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from sklearn import svm
 from sklearn.metrics import accuracy_score, classification_report,confusion_matrix
+import time
+start_time = time.time()
+
 # 
 # CARGAR DATASET
 #
@@ -49,21 +52,4 @@ acc = accuracy_score(label_test, prediction)
 print("Precisión Linear", acc)
 print(classification_report(label_test,prediction, labels=np.unique(prediction)))
 print(confusion_matrix(label_test, prediction))
-
-# Kernel poly
-clf = svm.SVC(kernel='poly')
-clf.fit(X=train, y=labels)
-prediction = clf.predict(test)
-acc = accuracy_score(label_test, prediction)
-print("Precisión Poly", acc)
-print(classification_report(label_test,prediction,labels=np.unique(prediction)))
-print(confusion_matrix(label_test, prediction))
-
-# Kernel rbf
-clf = svm.SVC(kernel='rbf')
-clf.fit(X=train, y=labels)
-prediction = clf.predict(test)
-acc = accuracy_score(label_test, prediction)
-print("Precisión RBF", acc)
-print(classification_report(label_test,prediction, labels=np.unique(prediction)))
-print(confusion_matrix(label_test, prediction))
+print("--- %s seconds ---" % (time.time() - start_time))
